@@ -10,3 +10,7 @@ const server = new GraphQLServer({
 })
 
 server.start(() => console.log("Graphql Server Running"))
+
+//흐름 : typeDefs => schema(가능한 요청 규정) 
+// => resolvers(해당 스키마에 맞는 return값 줌)
+// => return 값을 클라이언트에서 받음.

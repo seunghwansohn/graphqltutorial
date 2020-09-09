@@ -15,8 +15,16 @@ type Movie {
 }
 
 type Query {
-    people: [Person]!
+    people: [Person]! 
+    # Person은 type를 통해 복수로 규정될 수 있고
+    # 이 복수의 Person을 받으려면 [Person]으로 하면 됨.
     person(id: Int!): Person
     movies(limit: Int, rating: Float): [Movie]!
 }
 
+type Mutation {
+    addPerson(name : String!, age : Int!) : Person!
+}
+
+# !는 필수적으로 포함되어야 하는 변수
+# Query 및 Mutation 등 규정 가능

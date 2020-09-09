@@ -34,7 +34,7 @@ export const people = [
 ]
 
 export const getById = id => {
-  const filteredPeople = people.filter(person => person.id === id);
+  const filteredPeople = people.filter(person => person.id === String(id));
   return filteredPeople[0];
 };
 
@@ -58,4 +58,21 @@ export const getMovies = (limit, rating) => {
             return res.json()
         })
         .then(json => json.data.movies);
+}
+
+export const addPerson = (name, age) => {
+    const newPerson = {
+        id : `${people.length + 1}`,
+        name,
+        age
+    }
+    people.push(newPerson)
+    return newPerson
+    // 아래의 request로 추가 가능
+    // mutation{
+    //     addPerson(name : "orico", age : 33){
+    //       name
+    //       age
+    //     }
+    // }
 }
